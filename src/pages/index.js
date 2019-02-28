@@ -20,6 +20,7 @@ class BlogIndex extends React.Component {
         <div
           style={{
             marginTop: rhythm(-1),
+            marginBottom: rhythm(1),
             color: 'grey',
           }}
         >
