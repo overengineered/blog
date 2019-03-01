@@ -27,7 +27,7 @@ function createTracker() {
 
 class InspectableModuleLoader extends DefaultLoader {
   requireModule(from, moduleName, options) {
-    if (modulePath(from, moduleName) === 'inspect(end)') {
+    if (typeof moduleName === 'string' && moduleName.endsWith('inspect(end)')) {
       const result = this.tracker.getImports();
       this.tracker = undefined;
       return result;
@@ -37,7 +37,7 @@ class InspectableModuleLoader extends DefaultLoader {
       this.tracker.addImport(from, moduleName, options);
     }
 
-    if (modulePath(from, moduleName) === 'inspect(begin)') {
+    if (typeof moduleName === 'string' && moduleName.endsWith('inspect(begin)')) {
       this.tracker = createTracker();
       return null;
     }
