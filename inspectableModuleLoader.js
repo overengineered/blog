@@ -27,19 +27,21 @@ function createTracker() {
 
 class InspectableModuleLoader extends DefaultLoader {
   requireModule(from, moduleName, options) {
-    if (typeof moduleName === 'string' && moduleName.endsWith('inspect(end)')) {
-      const result = this.tracker.getImports();
-      this.tracker = undefined;
-      return result;
-    }
+    if (typeof moduleName === 'string') {
+      if (moduleName.endsWith('inspect(end)')) {
+        const result = this.tracker.getImports();
+        this.tracker = undefined;
+        return result;
+      }
 
-    if (this.tracker) {
-      this.tracker.addImport(from, moduleName, options);
-    }
+      if (this.tracker) {
+        this.tracker.addImport(from, moduleName, options);
+      }
 
-    if (typeof moduleName === 'string' && moduleName.endsWith('inspect(begin)')) {
-      this.tracker = createTracker();
-      return null;
+      if (moduleName.endsWith('inspect(begin)')) {
+        this.tracker = createTracker();
+        return null;
+      }
     }
 
     return DefaultLoader.prototype.requireModule.call(this, from, moduleName, options);
