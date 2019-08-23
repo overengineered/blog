@@ -1,12 +1,17 @@
 ---
-title: Run tests for current file in VS Code
-date: '2019-03-28T12:29:27.859Z'
+title: "Run tests for current file in VS Code"
+slug: vscode-current-file-tests
+date: 2019-03-28T12:29:27.859Z
 ---
 
 In my project we keep files and their tests next to each other.
-![hashing.js and hashing.spec.js](files.png)
+
+![hashing.js and hashing.spec.js](/../test-files.png)
+
 I wanted a quick way to run tests for currently open file regardless which one
 of the pair is opened. I accomplished this by adding `tasks.json` to my project.
+
+<!--more-->
 
 ```JSON
 {

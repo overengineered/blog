@@ -1,6 +1,7 @@
 ---
-title: Asserting on module imports with Jest
-date: '2019-02-28T16:12:35.284Z'
+title: "Asserting on module imports with Jest"
+slug: testing-imports
+date: 2019-02-28T16:12:35.284Z
 ---
 
 I work on React Native app and it's important to do as little as possible
@@ -9,6 +10,8 @@ with the app. One of the things that helped to reduce wait time was
 switching from importing JavaScript modules at the top of the file to
 requiring modules in the functions that actully use them. But the
 challenge now is to prevent unwanted imports from appearing again.
+
+<!--more-->
 
 My immediate reaction was "Let's use tests for that". While the goal is
 simple, finding a solution was not trivial. I tried using Jest machinery
@@ -161,8 +164,7 @@ test('initialization is performant', () => {
 
 gives us
 
-
-```diff
+```
 - Expected
 + Received
 
