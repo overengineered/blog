@@ -1,14 +1,14 @@
 .post-header {
   margin-bottom: 20px;
-  text-align: center;
   padding-bottom: 10px;
   border-bottom: 2px LightGrey solid;
 
   .post-title {
-    margin: 0;
+    margin: 0 0 0.5rem 0;
     font-size: $post-title-font-size;
     font-weight: $post-title-font-weight;
     font-family: $global-serif-font-family;
+    line-height: 120%;
 
     .post-pinned svg {
       vertical-align: middle;
@@ -19,7 +19,10 @@
   }
 
   .post-link {
-    @include underline-from-center;
+    &:hover {
+      color: $theme-color;
+      border-bottom: $post-readMore-border-bottom;
+    }
   }
 
   .post-meta {
