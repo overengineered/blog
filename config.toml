@@ -59,8 +59,8 @@ copyright = ""            # default: author.name
   highlightInClient = false
 
   # Some global options, you can also close or open something in front matter for a single post, see more information from `archetypes/default.md`.
-  toc = true
-  photoswipe = true         # see https://github.com/dimsemenov/PhotoSwipe
+  toc = false
+  photoswipe = false         # see https://github.com/dimsemenov/PhotoSwipe
 
   postMetaInFooter = false   # shows author, lastMod, markdown link, license
   contentCopyright = 'cprthldr'     # e.g. '<a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a>'

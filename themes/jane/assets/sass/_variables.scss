@@ -58,7 +58,7 @@ $global-lineheight: 1.8 !default;
 $global-font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif !default;
 
 // Serif font family of the site.
-$global-serif-font-family: Athelas, STHeiti, Microsoft Yahei, serif !default;
+$global-serif-font-family: Georgia, 'Hepta Slab', serif !default;
 
 // Background color of the site.
 $global-background: $white !default;
@@ -174,7 +174,7 @@ $content-table-border-color: darken($deputy-color, 3%) !default;
 $code-color: #c7254e !default;
 
 // Font size of code.
-$code-font-size: 0.9em !default;
+$code-font-size: 0.7em !default;
 
 // Font family of the code.
 $code-font-family: Menlo, Consolas, "Source Code Pro", Inconsolata, Monaco, "Courier New",
