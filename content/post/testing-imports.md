@@ -2,6 +2,8 @@
 title: "Asserting on module imports with Jest"
 slug: testing-imports
 date: 2019-02-28T16:12:35.284Z
+aliases:
+    - /blog/testing-imports/
 ---
 
 I work on React Native app and it's important to do as little as possible

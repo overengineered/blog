@@ -2,6 +2,8 @@
 title: "Run tests for current file in VS Code"
 slug: vscode-current-file-tests
 date: 2019-03-28T12:29:27.859Z
+aliases:
+    - /blog/vscode-current-file-tests/
 ---
 
 In my project we keep files and their tests next to each other.
