@@ -19,13 +19,13 @@ hasCJKLanguage = false    # has chinese/japanese/korean
 paginate = 5
 rssLimit = 30
 disqusShortname = ""      # disqus_shortname
-googleAnalytics = ""      # UA-XXXXXXXX-X
+googleAnalytics = "UA-46396173-2"
 copyright = ""            # default: author.name
 
-[author]                  # essential
+[author]
   name = "Juozas Kontvainis"
 
-[sitemap]                 # essential
+[sitemap]
   changefreq = "weekly"
   priority = 0.5
   filename = "sitemap.xml"
@@ -78,3 +78,11 @@ copyright = ""            # default: author.name
     b-stack-overflow = "https://stackoverflow.com/users/64605/juozas-kontvainis"
     c-twitter = "https://twitter.com/@juoz4s"
     g-github = "https://github.com/overengineered"
+
+# See https://gohugo.io/about/hugo-and-gdpr/
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+  [privacy.youtube]
+    privacyEnhanced = true
