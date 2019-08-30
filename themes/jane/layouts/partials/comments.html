@@ -15,8 +15,9 @@
   {{ if .Site.Params.utteranc.enable }}
     <div class="post bg-white">
       <script src="https://utteranc.es/client.js"
-            repo= "{{ .Site.Params.utteranc.repo }}"
+            repo="{{ .Site.Params.utteranc.repo }}"
             issue-term="{{ .Site.Params.utteranc.issueTerm }}"
+            label="{{ .Site.Params.utteranc.label }}"
             theme="{{ default "github-light" .Site.Params.utteranc.theme }}"
             crossorigin="anonymous"
             async>

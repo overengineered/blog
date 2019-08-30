@@ -70,14 +70,17 @@ copyright = ""            # default: author.name
   customCSS = []
   customJS = []
 
-#  [params.utterances]       # https://utteranc.es/
-#    owner = ""              # Your GitHub ID
-#    repo = ""               # The repo to store comments
+[params.utteranc]       # https://utteranc.es/
+  enable = true
+  owner = "overengineered"
+  repo = "overengineered/blog"
+  issueTerm = "pathname"
+  label = "blog-comment"
 
-  [params.social]
-    b-stack-overflow = "https://stackoverflow.com/users/64605/juozas-kontvainis"
-    c-twitter = "https://twitter.com/@juoz4s"
-    g-github = "https://github.com/overengineered"
+[params.social]
+  b-stack-overflow = "https://stackoverflow.com/users/64605/juozas-kontvainis"
+  c-twitter = "https://twitter.com/@juoz4s"
+  g-github = "https://github.com/overengineered"
 
 # See https://gohugo.io/about/hugo-and-gdpr/
 [privacy]
