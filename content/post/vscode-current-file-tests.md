@@ -8,7 +8,9 @@ aliases:
 
 In my project we keep files and their tests next to each other.
 
-![hashing.js and hashing.spec.js](/../test-files.png)
+> src<br/>
+> ├─ hashing.js<br/>
+> └─ hashing.spec.js
 
 I wanted a quick way to run tests for currently open file regardless which one
 of the pair is opened. I accomplished this by adding `tasks.json` to my project.

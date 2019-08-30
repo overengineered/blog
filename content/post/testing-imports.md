@@ -166,19 +166,17 @@ test('initialization is performant', () => {
 
 gives us
 
-```
-- Expected
-+ Received
-
-- Array []
-+ Array [
-+   "App",
-+   "app.json",
-+   "index.js",
-+   "react",
-+   "react-native",
-+ ]
-```
+> \- Expected  
+> \+ Received
+>
+> \- Array []  
+> \+ Array [  
+> \+ &nbsp; "App",  
+> \+ &nbsp; "app.json",  
+> \+ &nbsp; "index.js",  
+> \+ &nbsp; "react",  
+> \+ &nbsp; "react-native",  
+> \+ ]
 
 Let's change how we import App component.
 
