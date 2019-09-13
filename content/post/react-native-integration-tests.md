@@ -24,8 +24,9 @@ makes your test code more readable and requires less changes when product change
 React Native components sometimes require platform-specific counterparts to function
 correctly. Since our tests run in Node, instantiating those is tricky. The solution is to
 replace these components in tests with ones that feature just enough behavior to allow
-testing. For our tests we’ll need to mock TouchableOpacity and Switch components. We’ll
-add the jest setup file.
+testing. For our example test we'll need to mock TouchableOpacity and Switch components.
+We need to tell jest where to look for mocks setup file. This way mocked versions of
+components are available in each test suite.
 
 ```JSON
 // package.json
@@ -36,8 +37,9 @@ add the jest setup file.
 }
 ```
 
-We also need to configure mocks for TouchableOpacity and Switch in the setup file. This
-way mocked versions are available in each test suite.
+This setup file just sets up mocks for the components that are used in example app. It's a
+good place to also setup async-storage mocking and other mocks you might commonly need for
+tests.
 
 ```JavaScript
 // jest-setup.js
@@ -100,35 +102,32 @@ import {act} from 'react-test-renderer';
 import {componentDriver} from 'react-component-driver';
 import Example from '../App';
 
-const getExampleDriver = componentDriver(Example, {
- toggleAwesome(value) {
-   const {props} = this.getByID('awesome');
-   act(() => props.onValueChange(value));
-   return this;
- },
- pressSend() {
-   const {props} = this.getByID('submit');
-   act(() => props.onPress());
-   return this;
- },
- isAwesome() {
-   return this.getByID('awesome').props.value;
- },
+const getExampleDriver = () => componentDriver(Example, {
+  toggleAwesome(value) {
+    this.getByID('awesome').props.onValueChange(value);
+    return this;
+  },
+  pressSend() {
+    this.getByID('submit').props.onPress();
+    return this;
+  },
+  isAwesome() {
+    return this.getByID('awesome').props.value;
+  },
 });
 
 test('using Example screen driver', async () => {
- fetch = jest.fn();
- const driver = getExampleDriver()
-   .toggleAwesome(true)
-   .pressSend();
- expect(driver.isAwesome()).toBeTruthy();
- expect(fetch).toHaveBeenCalledTimes(1);
+  fetch = jest.fn();
+  const driver = getExampleDriver()
+    .toggleAwesome(true)
+    .pressSend();
+  expect(driver.isAwesome()).toBeTruthy();
+  expect(fetch).toHaveBeenCalledTimes(1);
 });
 ```
 
-Notice how using the driver allows us to focusmakes the test case code focused on what
-actions are being performed, while the details of how they are performed are delegated to
-the driver.
+Notice how using the driver allows us to focus on what actions are being performed, while
+the details of how they are performed are delegated to the driver.
 
 Finally, two more tips for writing better integration tests:
 
@@ -145,6 +144,8 @@ Finally, two more tips for writing better integration tests:
 
 The source code for this article is available
 [here](https://github.com/overengineered/blog/tree/samples/DriverTesting).
+
+Thanks to Morad Stern, Roman Kolgushev, Guy Manzuruola, and Ran Greenberg for reviews and suggestions.
 
 [^1]: [Good arguments][p1] for [testing pyramid] approach
 [^2]: [Good arguments][t1] for [testing trophy] approach
